@@ -11,15 +11,15 @@ services:
     ports:
       - "9090:9090"
 
-  alertmanager:
-    image: prom/alertmanager:v0.25.0
-    container_name: alertmanager
-    command:
-      - '--config.file=/etc/alertmanager/config.yml'
-    volumes:
-      - ./alertmanager-config.yml:/etc/alertmanager/config.yml
-    ports:
-      - '9093:9093'
+        #  alertmanager:
+        #    image: prom/alertmanager:v0.25.0
+        #    container_name: alertmanager
+        #    command:
+        #      - '--config.file=/etc/alertmanager/config.yml'
+        #    volumes:
+        #      - ./alertmanager-config.yml:/etc/alertmanager/config.yml
+        #    ports:
+        #      - '9093:9093'
 
 
 volumes:
