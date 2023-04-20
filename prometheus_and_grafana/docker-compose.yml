@@ -11,6 +11,14 @@ services:
     ports:
       - "9090:9090"
 
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./grafana-provisioning/:/etc/grafana/provisioning/
+
         #  alertmanager:
         #    image: prom/alertmanager:v0.25.0
         #    container_name: alertmanager
@@ -25,4 +33,5 @@ services:
 volumes:
   prometheus:
   alertmanager:
+  grafana:
 
