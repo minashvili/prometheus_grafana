@@ -5,6 +5,7 @@ services:
     image: prom/prometheus:v2.43.0
     container_name: prometheus
     volumes:
+      - ./prometheus_data:/prometheus
       - ./prometheus:/etc/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -26,6 +27,7 @@ services:
     ports:
       - '9093:9093'
     volumes:
+      - ./alertmanager_data:/alertmanager
       - ./alertmanager-config.yml:/etc/alertmanager/config.yml
     command:
       - '--config.file=/etc/alertmanager/config.yml'
