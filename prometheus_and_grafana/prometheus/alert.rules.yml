@@ -25,8 +25,15 @@ groups:
       description: "MySql has been down for more than 5 seconds. Current status is {{ $value }}."
 
 #Правило для Wordpress запущен он или упал 
-
-
-
+- name: example
+  rules:
+  - alert: WordpressHTTPError
+    expr: probe_http_status_code{instance="http://194-67-67-115.cloudvps.regruhosting.ru/", job="blackbox"} != 200
+    for: 5s
+    labels:
+      severity: high
+    annotations:
+      summary: "HTTP error detected"
+      description: "HTTP error detected for target {{ $labels.instance }}"
 
 

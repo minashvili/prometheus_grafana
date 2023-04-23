@@ -11,7 +11,7 @@ receivers:
     telegram_configs:
       - chat_id: -1001941487247
         parse_mode: 'Markdown'
-        bot_token: 'token'
+        bot_token: ''
         #bot_token: ${SUPER_TOKEN}
         send_resolved: true
 
