@@ -95,7 +95,6 @@ services:
       - ./GAP-1/blackbox.yml:/etc/blackbox_exporter/config.yml
     restart: always
 
-
 volumes:
   certbot-etc:
   wordpress:

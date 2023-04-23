@@ -1,17 +1,32 @@
-global:
-  resolve_timeout: 5m
+groups:
 
-route:
-  group_by: ['alertname', 'severity']
-  repeat_interval: 1h
-  receiver: 'telegram'
+#Правило для Nginx запущен он или упал        
+- name: nginx
+  rules:
+  - alert: NginxDown
+    expr: nginx_up == 0
+    for: 5s
+    labels:
+      severity: critical
+    annotations:
+      summary: "Nginx is down (instance {{ $labels.instance }})"
+      description: "Nginx has been down for more than 5 seconds. Current status is {{ $value }}."
 
-receivers:
-  - name: 'telegram'
-    telegram_configs:
-      - chat_id: 105013941
-        parse_mode: 'Markdown'
-        bot_token: '5893953243:AAFMoKJtf2CyYzOT9osQRLhTCAqInDrfNC8'
+#Правило для MySql запущен он или упал
+- name: mysql
+  rules:
+  - alert: MysqlDown
+    expr: mysql_up == 0
+    for: 5s
+    labels:
+      severity: critical
+    annotations:
+      summary: "MySql is down (instance {{ $labels.instance }})"
+      description: "MySql has been down for more than 5 seconds. Current status is {{ $value }}."
+
+#Правило для Wordpress запущен он или упал 
+
+
 
 
 

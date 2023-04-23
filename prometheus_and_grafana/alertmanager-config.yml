@@ -3,21 +3,15 @@ global:
 
 route:
   group_by: ['alertname', 'severity']
-  repeat_interval: 1h
+  repeat_interval: 10s
   receiver: 'telegram'
 
 receivers:
   - name: 'telegram'
     telegram_configs:
-      - chat_id: 105013941
+      - chat_id: -1001941487247
         parse_mode: 'Markdown'
-        bot_token: '5893953243:AAFMoKJtf2CyYzOT9osQRLhTCAqInDrfNC8'
-
-
-
-
-
-
-
-
+        bot_token: 'token'
+        #bot_token: ${SUPER_TOKEN}
+        send_resolved: true
 

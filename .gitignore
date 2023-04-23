@@ -1,2 +1,5 @@
 .env
 grafana_data
+alertmanager_data 
+prometheus_data
+
