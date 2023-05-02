@@ -45,6 +45,7 @@ services:
       - wordpress:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
       - certbot-etc:/etc/letsencrypt
+      - /var/log/nginx/:/var/log/nginx
     networks:
       - app-network
 

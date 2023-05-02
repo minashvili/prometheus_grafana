@@ -2,4 +2,4 @@
 grafana_data
 alertmanager_data 
 prometheus_data
-
+GeoLite2-Country.mmdb
