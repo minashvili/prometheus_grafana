@@ -53,12 +53,11 @@ RUN apt-get update \
  && make modules \
  && make install \
  && mkdir -p /usr/local/nginx/modules/ \
- && cp /usr/lib/nginx/modules/* /usr/local/nginx/modules/
-
+ && cp /usr/lib/nginx/modules/* /usr/local/nginx/modules/ \
+ && rm -rf /etc/nginx/nginx.conf
 EXPOSE 80 8080
 
-COPY nginx2.conf /etc/nginx/nginx.conf
 COPY GeoLite2-Country.mmdb /usr/share/GeoIP
-ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+#ENTRYPOINT ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
 
 
